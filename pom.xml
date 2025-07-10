@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zerock</groupId>
-	<artifactId>controller</artifactId>
-	<name>ex01</name>
+	<groupId>org.mbc</groupId>
+	<artifactId>board</artifactId>
+	<name>MBCBoard</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -31,7 +31,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
 		<dependency>
 			<!-- 위에 있는 webmvc를 복사해서 test로 변경 -->
 			<groupId>org.springframework</groupId>
@@ -46,7 +45,7 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
-		<!-- Logging  보안 이슈로 버전 향상 해야 됨
+		<!-- Logging 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -63,8 +62,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
-		</dependency>-->
-		<!--
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -89,7 +87,6 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-		
 		-->
 		<dependency>
 			<!-- 보안 이슈로 log4j2로 향상 -->
@@ -121,8 +118,7 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
-		</dependency> 서블릿 버전 향상 -->
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		</dependency> 서블릿 버전 향상-->
 		<dependency>
 			<!--p111 서블릿 버전향상 프론트 + 컨트롤러 -->
 			<groupId>javax.servlet</groupId>
@@ -136,7 +132,7 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency> <!--taglib용 코드 기본 내장 c:out-->
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
@@ -146,24 +142,25 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version> <!-- 4.7에서 4.12버전으로 향상-->
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok 롬북 추가 코드 -->
 		<dependency>
 			<!--dto 객체 처리용 게터,세터,toString,생성자 등 -->
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
-		</dependency>
-
+		</dependency>	
+		
 		<!-- ojdbc연결용 드라이버 추가 https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>23.2.0.0</version>
 		</dependency>
-
+		
 
 		<!-- 커넥션풀용 코드 추가 p83 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 		<dependency>
@@ -171,8 +168,8 @@
 			<artifactId>HikariCP</artifactId>
 			<version>2.7.4</version>
 		</dependency>
-
-		<!-- root-context.xml 에 삽입
+		
+			<!-- root-context.xml 에 삽입
 		 
 		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	
@@ -189,7 +186,7 @@
 		</bean>
 		
 		-->
-
+		
 		<!-- 마이바티스 -> pstmt의 대체용  : jdbc 연동용 https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<!-- 마이바티스 메핑용 코드 -->
 		<dependency>
@@ -229,7 +226,6 @@
 		sql처리를 mapper에서 찾는다.  -> 인터페이스 + xml로 sql 처리함.
 				
 		-->
-
 		<!-- 로그출력을 표형식으로 구현 https://mvnrepository.com/artifact/org.bgee.jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
@@ -244,6 +240,7 @@
 			<version>2.9.4</version>
 		</dependency>
 
+		
 	</dependencies> <!-- 의존성 주입 종료 -->
 	<build>
 		<plugins>
@@ -264,10 +261,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version> <!-- 2.5.1에서 향상-->
+				<version>3.5.1</version>
 				<configuration>
-					<source>11</source> <!-- 1.6에서 향상-->
-					<target>11</target> <!-- 1.6에서 향상-->
+					<source>11</source>
+					<target>11</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
