@@ -20,19 +20,22 @@ public interface BoardMapper {
 	public List<BoardVO> getList2();
 	// xml을 이용한 쿼리 처리 메퍼용 메서드
 	
-	// c : insert 데이터를 삽입하는 쿼리문
-	// 1.insert 처리후에 결과 int로 받는 방법
-	// 2.pk를 먼저 생성 한후에 insert가 되는 방법.
-	public void insert(BoardVO board); // xml 에서 쿼리 작성
-    
-	public void insertSelectkey(BoardVO board); // xml에서 쿼리 작성
-    
+	
+	// C : insert 데이터를 삽입하는 쿼리문
+	// 1. insert 처리후에 결과 int로 받는 방법
+	// 2. pk를 먼저 생성 한 후에 insert가 되는 방법
+	public void insert(BoardVO board); // xml에서 쿼리 작성
+	
+	public void insertSelectKey(BoardVO board); // xml에서 쿼리 작성
+	
 	public BoardVO read(Long bno); // xml에서 쿼리 작성
 	// 번호가 들어가면 객체로 나온다.
 	
 	public int delete(Long bno); // xml에서 쿼리 작성
-	// 번호가 들어가면 삭제 후 몇개가 됐는지 
+	// 번호가 들어가면 삭제후 몇개가 삭제 됐는지 리턴한다.
 	
-	public int update(BoardVO board); // xml에서 쿼리 작성
-	// 번호가 들어가면 필드 수정 후 몇개가 수정됐는지 리턴한다.
+	
+	public int update(BoardVO board); // xml에서 쿼리작성
+	// 번호가 들어가면 필드 수정후 몇개가 수정됐는지 리턴한다.
+
 }
